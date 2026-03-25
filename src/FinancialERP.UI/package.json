@@ -1,0 +1,47 @@
+{
+  "name": "financial-erp-ui",
+  "version": "1.0.0",
+  "description": "Financial ERP AI - Apple macOS Design",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "vite build && electron-builder"
+  },
+  "main": "electron/main.js",
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
+    "pinia": "^2.1.7",
+    "axios": "^1.6.7",
+    "chart.js": "^4.4.1",
+    "vue-chartjs": "^5.3.0",
+    "animate.css": "^4.1.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.1.4",
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3",
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.financial-erp.ai",
+    "productName": "Financial ERP AI",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
+  }
+}
